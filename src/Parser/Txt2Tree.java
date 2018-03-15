@@ -2,6 +2,7 @@ package Parser;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.regex.Matcher;
 public class Txt2Tree {
     private String filePath;
@@ -14,19 +15,19 @@ public class Txt2Tree {
             System.out.println(e.getMessage());
             System.exit(-1);
         }
-        return;
     }
 
     public Txt2Tree(String filePath) {
         file = new File(filePath);
         treeVec = new ArrayList<Node>();
     }
-
+    public ArrayList<Node> getTreeVec() {
+        return treeVec;
+    }
     public void process() throws IOException{
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
         String line;
-
         while((line = br.readLine()) != null) {
             if(RgexPatern.chapterPattern.matcher(line).find()) {
                 String[] tmp = line.split("\\s+");
@@ -53,30 +54,31 @@ public class Txt2Tree {
             return;
         String line;
         while((line = markAndReadLine(br)) != null) {
-            if(RgexPatern.chapterPattern.matcher(line).find()) {
+            if(RgexPatern.chapterPattern.matcher(line).find()
+            ||RgexPatern.disasePattern.matcher(line).find()) {
                 readOffsetRest(br);
                 return;
             }
             Matcher mat = RgexPatern.knowledgePointPattern.matcher(line);
             if(mat.find()) {
                     String kp = mat.group(1);
-                    Node kpNode = new Node(kp);
-                    diseaseNode.insertChild(kpNode);
+//                    Node kpNode = new Node(kp);
+//                    diseaseNode.insertChild(kpNode);
                     System.out.printf("%s inserted into %s and constructing %s node\n",kp,diseaseNode.getTitle(),kp);
-                    if(kp == "病因") {
+                    if(kp.equals("病因")) {
                         Node etiology = EtiologyParser.constructEtiology(br);
                         etiology.setParent(diseaseNode);
                         diseaseNode.insertChild(etiology);//现在疾病有了病因
                     }
-                    else if(kp == "诊断要点") {
+                    else if(kp.equals("诊断要点")) {
                         Node diagnosis = DiagnosisKp.constructDiagnosis(br);
                         diagnosis.setParent(diseaseNode);
                         diseaseNode.insertChild(diagnosis);
                     }
-                    else if(kp == "治疗") {
+                    else if(kp.equals("治疗")) {
                         Node treatment = TreatmentParser.constructTreatment(br);
                         treatment.setParent(diseaseNode);
-                        diseaseNode.insertChild(diseaseNode);
+                        diseaseNode.insertChild(treatment);
                     }
             }
         }
@@ -118,5 +120,8 @@ public class Txt2Tree {
         }catch(IOException e) {
             System.out.println(e.getMessage());
         }
+        ArrayList<Node> treeVec = obj.getTreeVec();
+        Tree2Relation t2r = new Tree2Relation("C:\\Users\\Administrator\\Desktop\\参考文献\\new_reference\\心血管病诊疗指南Parser.txt",treeVec);
+        t2r.process();
     }
 }

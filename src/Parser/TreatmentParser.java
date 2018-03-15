@@ -3,18 +3,19 @@ import java.io.BufferedReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class TreatmentParser {
-    public static String cnNumAndWordPatternStr = "（[一,二,三,四,五,六,七,八,九,十]）(.+)";
-    public static String numAndWordPatternStr = "[1-9]+\\.*(.*)";
-    //public static String wordAndDescriptionPatternStr = "（[1-9]）(.+)：(.+)";
-    public static Pattern cnNumAndWordPattern = Pattern.compile(cnNumAndWordPatternStr);
-    public static Pattern numAndWordPattern = Pattern.compile(numAndWordPatternStr);
+    private static String cnNumAndWordPatternStr = "（[一,二,三,四,五,六,七,八,九,十]）(.+)";
+    private static String numAndWordPatternStr = "^[1-9]+\\.*\\s*(.*)";
+    //public static String wordAndDescriptionPatternStr = "（[1-9]）(.+?)：(.+)";
+    private static Pattern cnNumAndWordPattern = Pattern.compile(cnNumAndWordPatternStr);
+    private static Pattern numAndWordPattern = Pattern.compile(numAndWordPatternStr);
 
     //public static Pattern wordAndDescriptionPattern = Pattern.compile(wordAndDescriptionPatternStr);
     private static void innerConstruct(Node parent, BufferedReader br) {
         String line;
         while ((line = Txt2Tree.markAndReadLine(br)) != null) {
             if (cnNumAndWordPattern.matcher(line).find()
-                    || RgexPatern.knowledgePointPattern.matcher(line).find()) {
+                    || RgexPatern.knowledgePointPattern.matcher(line).find()
+                    ||RgexPatern.disasePattern.matcher(line).find()) {
                 Txt2Tree.readOffsetRest(br);
                 break;
             }
@@ -32,7 +33,8 @@ public class TreatmentParser {
         Node treatment = new Node("治疗");
         while ((line = Txt2Tree.markAndReadLine(br)) != null) {
             if (RgexPatern.chapterPattern.matcher(line).find()
-                    || RgexPatern.knowledgePointPattern.matcher(line).find()) {
+                    || RgexPatern.knowledgePointPattern.matcher(line).find()
+                    ||RgexPatern.disasePattern.matcher(line).find()) {
                 Txt2Tree.readOffsetRest(br);
                 break;
             }

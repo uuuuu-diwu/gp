@@ -3,12 +3,12 @@ import java.io.BufferedReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class DiagnosisKp {
-    public static String cnNumAndWordPatternStr = "（[一,二,三,四,五,六,七,八,九,十]）(.+)";
-    public static String numAndWordPatternStr = "[1-9]+\\.*(.*)";
-    public static String wordAndDescriptionPatternStr = "（[1-9]）(.+)：(.+)";
-    public static Pattern cnNumAndWordPattern = Pattern.compile(cnNumAndWordPatternStr);
-    public static Pattern numAndWordPattern = Pattern.compile(numAndWordPatternStr);
-    public static Pattern wordAndDescriptionPattern = Pattern.compile(wordAndDescriptionPatternStr);
+    private static String cnNumAndWordPatternStr = "（[一,二,三,四,五,六,七,八,九,十]）(.+)";
+    private static String numAndWordPatternStr = "^[1-9]+\\.*\\s*(.*)";
+    private static String wordAndDescriptionPatternStr = "（[1-9]）(.+?)：(.+)";
+    private static Pattern cnNumAndWordPattern = Pattern.compile(cnNumAndWordPatternStr);
+    private static Pattern numAndWordPattern = Pattern.compile(numAndWordPatternStr);
+    private static Pattern wordAndDescriptionPattern = Pattern.compile(wordAndDescriptionPatternStr);
     private static void constructSymptom(Node parent,BufferedReader br) {
         String line;
         while((line = Txt2Tree.markAndReadLine(br)) != null) {
@@ -27,7 +27,12 @@ public class DiagnosisKp {
                 word.setParent(parent);
             }
             else { //todo 分词或者其他处理
-
+                String[] shortSentence = line.split("\\s+|，");
+                for(int i = 0; i < shortSentence.length; i++) {
+                    Node word = new Node(shortSentence[i]);
+                    parent.insertChild(word);
+                    word.setParent(parent);
+                }
             }
         }
 
@@ -53,7 +58,8 @@ public class DiagnosisKp {
         Node res = new Node("诊断要点");
         while((line = Txt2Tree.markAndReadLine(br)) != null) {
             if(RgexPatern.chapterPattern.matcher(line).find()
-                    ||RgexPatern.knowledgePointPattern.matcher(line).find()) {
+                    ||RgexPatern.knowledgePointPattern.matcher(line).find()
+                    ||RgexPatern.disasePattern.matcher(line).find()) {
                 Txt2Tree.readOffsetRest(br);
                 break;
             }
@@ -61,29 +67,29 @@ public class DiagnosisKp {
             Matcher numAndWord = numAndWordPattern.matcher(line);
             if(cnNumAndWord.find()) {
                 String word = cnNumAndWord.group(1);
-                if(word == "临床表现") {
-                    continue;
+                if(word.equals("临床表现")) {
+                    //todo
                 }
-                else if(word == "特殊检查") {
+                else if(word.equals("特殊检查")) {
                     Node specialCheck = new Node("特殊检查");
                     constructSpecialCheck(specialCheck,br);
                     res.insertChild(specialCheck);
                     specialCheck.setParent(res);
                 }
                 else {
-                    continue;
+
                     //todo
                 }
             }
             else if(numAndWord.find()) {
                 String word = numAndWord.group(1);
-                if(word == "症状") {
+                if(word.equals("症状")) {
                     Node symptom = new Node("症状");
                     constructSymptom(symptom,br);
                     res.insertChild(symptom);
                     symptom.setParent(res);
                 }
-                else if(word == "体征") {
+                else if(word.equals("体征")) {
                     Node sign = new Node("体征");
                     constructSymptom(sign,br);
                     res.insertChild(sign);
