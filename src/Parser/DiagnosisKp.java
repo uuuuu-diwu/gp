@@ -20,18 +20,31 @@ public class DiagnosisKp {
             }
             Matcher wordAndDescription = wordAndDescriptionPattern.matcher(line);
             if(wordAndDescription.find()) {
-                Node word = new Node(wordAndDescription.group(1));
-                Vocab vocab = new Vocab(wordAndDescription.group(2),word);
-                word.insertVocab(vocab);
+                String wordStr = wordAndDescription.group(1);
+                String description = wordAndDescription.group(2);
+                description = HighFrequencyVerb.diagnoParser(description);
+                if(description != null) {
+                    String[] words = description.split("\\s+|、");
+                    for(int i = 0; i < words.length;i++) {
+                        Node splitNode = new Node(words[i] + "(need  to confirm)");
+                        splitNode.setParent(parent);
+                        parent.insertChild(splitNode);
+                    }
+                }
+                Node word = new Node(wordStr);
                 parent.insertChild(word);
                 word.setParent(parent);
+                //todo for description
             }
             else { //todo 分词或者其他处理
-                String[] shortSentence = line.split("\\s+|，");
-                for(int i = 0; i < shortSentence.length; i++) {
-                    Node word = new Node(shortSentence[i]);
-                    parent.insertChild(word);
-                    word.setParent(parent);
+                line = HighFrequencyVerb.diagnoParser(line);
+                if(line != null) {
+                    String[] words = line.split("\\s+|、");
+                    for(int i = 0; i < words.length;i++) {
+                        Node splitNode = new Node(words[i] + "(need  to confirm)");
+                        splitNode.setParent(parent);
+                        parent.insertChild(splitNode);
+                    }
                 }
             }
         }
@@ -85,7 +98,7 @@ public class DiagnosisKp {
                 String word = numAndWord.group(1);
                 if(word.equals("症状")) {
                     Node symptom = new Node("症状");
-                    constructSymptom(symptom,br);
+                    constructSymptom(symptom,br);//主要的临床表现处理在这个函数中
                     res.insertChild(symptom);
                     symptom.setParent(res);
                 }

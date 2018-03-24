@@ -1,23 +1,27 @@
 二尖瓣狭窄
 二尖瓣狭窄(disase)/病因/风湿热
 二尖瓣狭窄(disase)/病因/先天性二尖瓣狭窄
-二尖瓣狭窄(disase)/病因/（3）罕见病因包括恶性类肿瘤(need  to confirm)
+二尖瓣狭窄(disase)/病因/恶性类肿瘤(need  to confirm)
 二尖瓣狭窄(disase)/病因/系统性红斑狼疮(need  to confirm)
 二尖瓣狭窄(disase)/病因/类风湿性关节炎(need  to confirm)
 二尖瓣狭窄(disase)/病因/显性粘多糖病(need  to confirm)
 二尖瓣狭窄(disase)/病因/老年退行性钙化性病变(need  to confirm)
+二尖瓣狭窄(disase)/症状/休息时呼吸困难(need  to confirm)
+二尖瓣狭窄(disase)/症状/端坐呼吸(need  to confirm)
+二尖瓣狭窄(disase)/症状/阵法性夜间呼吸困难(need  to confirm)
+二尖瓣狭窄(disase)/症状/肺水肿(need  to confirm)
 二尖瓣狭窄(disase)/症状/呼吸困难
+二尖瓣狭窄(disase)/症状/null(need  to confirm)
+二尖瓣狭窄(disase)/症状/引起(need  to confirm)
 二尖瓣狭窄(disase)/症状/咳嗽
+二尖瓣狭窄(disase)/症状/咯血(need  to confirm)
+二尖瓣狭窄(disase)/症状/声嘶(need  to confirm)
+二尖瓣狭窄(disase)/症状/少数病人可出现栓塞(need  to confirm)
 二尖瓣狭窄(disase)/症状/其他症状
 二尖瓣狭窄(disase)/体征/二尖瓣面容
+二尖瓣狭窄(disase)/体征/，(need  to confirm)
 二尖瓣狭窄(disase)/体征/心脏体征
-二尖瓣狭窄(disase)/体征/
-二尖瓣狭窄(disase)/体征/伴肺动脉高压者可有第二心音亢进和肺动脉瓣反流性杂音。严重狭窄的病人可无杂音
-二尖瓣狭窄(disase)/体征/称为哑型二尖瓣狭窄
-二尖瓣狭窄(disase)/体征/但常有肺动脉瓣区第二心音亢进和Graham-Steel杂音。右室增大者可于胸骨左源3-4肋间
-二尖瓣狭窄(disase)/体征/
-二尖瓣狭窄(disase)/体征/触及台举行搏动
-二尖瓣狭窄(disase)/体征/在部分病人可听到三尖瓣反流性杂音
+二尖瓣狭窄(disase)/体征/三尖瓣反流性杂音(need  to confirm)
 二尖瓣狭窄(disase)/特殊检查/X线
 二尖瓣狭窄(disase)/特殊检查/心电图
 二尖瓣狭窄(disase)/特殊检查/超声心动图
@@ -29,30 +33,25 @@
 血管扩张剂(medicine)/治疗/二尖瓣狭窄
 抗凝治疗(medicine)/治疗/二尖瓣狭窄
 房颤的处理(medicine)/治疗/二尖瓣狭窄
-二尖瓣狭窄(disase)/病因/风湿病(need  to confirm)
-二尖瓣狭窄(disase)/病因/二尖瓣脱垂(need  to confirm)
-二尖瓣狭窄(disase)/病因/乳头肌功能障碍(need  to confirm)
-二尖瓣狭窄(disase)/病因/退行性病变致瓣膜穿孔和腱索(need  to confirm)
-二尖瓣狭窄(disase)/病因/结缔组织病(need  to confirm)
-二尖瓣狭窄(disase)/病因/先天畸形(need  to confirm)
-二尖瓣狭窄(disase)/病因/各种原因所致的左室腔增大(need  to confirm)
-二尖瓣狭窄(disase)/病因/急性心肌梗死所致的腱索和乳头肌功能障碍(need  to confirm)
-二尖瓣狭窄(disase)/病因/感染性心内膜炎(need  to confirm)
-二尖瓣狭窄(disase)/病因/退行性病变致瓣膜穿孔和腱索、乳头肌断裂(need  to confirm)
-二尖瓣狭窄(disase)/症状/轻度二尖瓣关闭不全可无明显症状
-二尖瓣狭窄(disase)/症状/中度以上关闭不全可出现乏力、心悸、呼吸困难等症状
-二尖瓣狭窄(disase)/症状/重度急性二尖瓣关闭不全出现急性左心功能不全
-二尖瓣狭窄(disase)/症状/甚至发生急性肺水肿或心源性休克
-二尖瓣狭窄(disase)/体征/心脏向左下扩张
-二尖瓣狭窄(disase)/体征/心尖部可闻及全收缩期吹风样杂音
-二尖瓣狭窄(disase)/体征/向左腋下、背部或心底部传导
-二尖瓣狭窄(disase)/体征/第一心音减弱
-二尖瓣狭窄(disase)/体征/常有第三心音。重度反流患者心尖部可触及收缩期震颤。
-二尖瓣狭窄(disase)/特殊检查/x线
-二尖瓣狭窄(disase)/特殊检查/心电图
-二尖瓣狭窄(disase)/特殊检查/超声心动图
-二尖瓣狭窄(disase)/特殊检查/心导管检出
-血管扩张剂(medicine)/治疗/二尖瓣狭窄
-洋地黄制剂(medicine)/治疗/二尖瓣狭窄
-利尿剂(medicine)/治疗/二尖瓣狭窄
-感染性心内膜炎的预防(medicine)/治疗/二尖瓣狭窄
+二尖瓣关闭不全
+二尖瓣关闭不全(disase)/病因/瓣膜穿孔和腱索(need  to confirm)
+二尖瓣关闭不全(disase)/病因/结缔组织病(need  to confirm)
+二尖瓣关闭不全(disase)/病因/先天畸形(need  to confirm)
+二尖瓣关闭不全(disase)/病因/各种原因所致的左室腔增大(need  to confirm)
+二尖瓣关闭不全(disase)/病因/的腱索和乳头肌功能障碍(need  to confirm)
+二尖瓣关闭不全(disase)/病因/感染性心内膜炎(need  to confirm)
+二尖瓣关闭不全(disase)/病因/退行性病变致瓣膜穿孔和腱索(need  to confirm)
+二尖瓣关闭不全(disase)/病因/乳头肌断裂(need  to confirm)
+二尖瓣关闭不全(disase)/症状/乏力(need  to confirm)
+二尖瓣关闭不全(disase)/症状/心悸(need  to confirm)
+二尖瓣关闭不全(disase)/症状/呼吸困难等症状，重度急性二尖瓣关闭不全出现急性左心功能不全(need  to confirm)
+二尖瓣关闭不全(disase)/症状/甚至发生急性肺水肿(need  to confirm)
+二尖瓣关闭不全(disase)/症状/心源性休克(need  to confirm)
+二尖瓣关闭不全(disase)/特殊检查/x线
+二尖瓣关闭不全(disase)/特殊检查/心电图
+二尖瓣关闭不全(disase)/特殊检查/超声心动图
+二尖瓣关闭不全(disase)/特殊检查/心导管检出
+血管扩张剂(medicine)/治疗/二尖瓣关闭不全
+洋地黄制剂(medicine)/治疗/二尖瓣关闭不全
+利尿剂(medicine)/治疗/二尖瓣关闭不全
+感染性心内膜炎的预防(medicine)/治疗/二尖瓣关闭不全

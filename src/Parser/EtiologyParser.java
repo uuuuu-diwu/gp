@@ -21,10 +21,16 @@ public class EtiologyParser {
             if(mat.find()) {
                 String word = mat.group(2);
                 String description = mat.group(3);
-                //normal format word:description
+                description = HighFrequencyVerb.etiologyParser(description);
+                if(description != null) {
+                    String[] words = description.split("\\s+|、");
+                    for(int i = 0; i < words.length;i++) {
+                        Node splitNode = new Node(words[i] + "(need  to confirm(description)");
+                        splitNode.setParent(res);
+                        res.insertChild(splitNode);
+                    }
+                }
                 Node concreteEtiology = new Node(word);
-                Vocab vocab = new Vocab(description,concreteEtiology);
-                concreteEtiology.insertVocab(vocab);
                 concreteEtiology.setParent(res);
                 res.insertChild(concreteEtiology);
             }
@@ -34,7 +40,11 @@ public class EtiologyParser {
                     if(words.length > 1)
                         line = words[1];
                 }
-                String[] words = line.split("\\s+|，");
+                //un match line ,todo....
+                line = HighFrequencyVerb.etiologyParser(line);
+                if(line == null)
+                    continue;
+                String[] words = line.split("\\s+|、");
                 for(int i = 0; i < words.length;i++) {
                     Node splitNode = new Node(words[i] + "(need  to confirm)");
                     splitNode.setParent(res);
