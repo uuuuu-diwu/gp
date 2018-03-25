@@ -86,8 +86,13 @@ public class HighFrequencyVerb {
         }
         mat = daozhi.matcher(line);
         if(mat.find()) {
-            //todo
-            return mat.group(1) + "、" + mat.group(3);
+            //tod
+            String t0 = mat.group(0);
+            String t1 = mat.group(1);
+            String t2 = mat.group(2);
+            String t3 = mat.group(3);
+            String t4 = mat.group(4);
+            return mat.group(2) + "、" + mat.group(4);
         }
         mat = yinqi.matcher(line);
         if(mat.find()) {

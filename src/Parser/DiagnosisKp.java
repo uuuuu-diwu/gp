@@ -34,7 +34,6 @@ public class DiagnosisKp {
                 Node word = new Node(wordStr);
                 parent.insertChild(word);
                 word.setParent(parent);
-                //todo for description
             }
             else { //todo 分词或者其他处理
                 line = HighFrequencyVerb.diagnoParser(line);
