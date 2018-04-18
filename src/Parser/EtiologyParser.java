@@ -5,7 +5,9 @@ import java.util.regex.Pattern;
 public class EtiologyParser {
     private static String linePatternStr = "(（[1-9]+）+)(.+)：(.+)";//如果匹配失败，说明没有“：”，则进行分词处理
     private static String numAndWordPatternStr = "^[1-9]+\\.*\\s*(.*)";
+    private static String numAndWordPatternStr1 = "（[1-9]+）\\s*(.*)";
     private static Pattern numAndWordPattern = Pattern.compile(numAndWordPatternStr);
+    private static Pattern numAndWordPattern1 = Pattern.compile(numAndWordPatternStr1);
     private static Pattern linePattern = Pattern.compile(linePatternStr);
     public static Node constructEtiology(BufferedReader br) {
         String line;
@@ -35,20 +37,25 @@ public class EtiologyParser {
                 res.insertChild(concreteEtiology);
             }
             else {
-                if(numAndWordPattern.matcher(line).find()) {
-                    String[] words = line.split("\\s");
-                    if(words.length > 1)
-                        line = words[1];
+                if(numAndWordPattern.matcher(line).find()||numAndWordPattern1.matcher(line).find()) {
+                    String[] words = line.split("\\s|，|、|（[1-9]+）");
+                    for (int i = 1; i < words.length; i++) {
+                        Node splitNode = new Node(words[i] + "(need  to confirm)");
+                        splitNode.setParent(res);
+                        res.insertChild(splitNode);
+                    }
                 }
-                //un match line ,todo....
-                line = HighFrequencyVerb.etiologyParser(line);
-                if(line == null)
-                    continue;
-                String[] words = line.split("\\s+|、");
-                for(int i = 0; i < words.length;i++) {
-                    Node splitNode = new Node(words[i] + "(need  to confirm)");
-                    splitNode.setParent(res);
-                    res.insertChild(splitNode);
+                else {
+                    //un match line ,todo....
+                    line = HighFrequencyVerb.etiologyParser(line);
+                    if (line == null)
+                        continue;
+                    String[] words = line.split("\\s+|、");
+                    for (int i = 0; i < words.length; i++) {
+                        Node splitNode = new Node(words[i] + "(need  to confirm)");
+                        splitNode.setParent(res);
+                        res.insertChild(splitNode);
+                    }
                 }
             }
         }

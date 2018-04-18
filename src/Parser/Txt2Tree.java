@@ -15,7 +15,10 @@ public class Txt2Tree {
             System.exit(-1);
         }
     }
-
+    public Txt2Tree(File file) {
+        this.file = file;
+        treeVec = new ArrayList<Node>();
+    }
     public Txt2Tree(String filePath) {
         file = new File(filePath);
         treeVec = new ArrayList<Node>();
@@ -113,14 +116,14 @@ public class Txt2Tree {
         return null;
     }
     public static void main(String[] argv) {
-        Txt2Tree obj = new Txt2Tree("/home/wd/work_space/gp/心血管病诊疗指南.txt");
+        Txt2Tree obj = new Txt2Tree("E:\\IdeaProjects\\JenaDemo\\心血管病诊疗指南.txt");
         try {
             obj.process();
         }catch(IOException e) {
             System.out.println(e.getMessage());
         }
         ArrayList<Node> treeVec = obj.getTreeVec();
-        Tree2Relation t2r = new Tree2Relation("/home/wd/work_space/gp/心血管病诊疗指南Parser.txt",treeVec);
+        Tree2Relation t2r = new Tree2Relation(/*"E:\\IdeaProjects\\JenaDemo\\心血管病诊疗指南Parser.txt",*/treeVec);
         t2r.process();
     }
 }
